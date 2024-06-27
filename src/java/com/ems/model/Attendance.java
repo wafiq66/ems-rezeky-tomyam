@@ -73,6 +73,10 @@ public class Attendance {
         return(!ClockInTime.equals("none") && ClockOutTime.equals("none"));
     }
     
+    public boolean isMonthMatched(String inputMonth) {
+        String attendanceMonth = AttendanceDate.substring(0, 7); // extract "YYYY-MM" from AttendanceDate
+        return attendanceMonth.equals(inputMonth);
+    }
     
     
 }

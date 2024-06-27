@@ -51,9 +51,9 @@ public class ViewAttendanceRecord extends HttpServlet {
             Employee employee = (Employee) session.getAttribute("employeeLog");
             Attendance[] attendance = attendanceDAO.getAllAttendances(employee);
             List<Integer> attendanceIDs = new ArrayList<>();
-
+            
             for (Attendance a : attendance) {
-                if (month.equals(a.getAttendanceDate().substring(0, 7))) {
+                if (a.isMonthMatched(month)) {
                     attendanceIDs.add(a.getAttendanceID());
                 }
             }

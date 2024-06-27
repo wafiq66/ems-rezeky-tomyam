@@ -42,15 +42,15 @@
 				
 				
 				<!-- Header Menu -->
-				<nav>
-					<ul>
-						<li><a href="main_officer.jsp">Home</a></li>
-						<li><a href="officer_employee_list.jsp">Employee</a></li>
-						<li><a href="#about">Salary</a></li>
-						<li><a href="#about">Report</a></li>
-						<li><a href="welcome.html">Log Out</a></li>
-					</ul>
-				</nav>
+				<nav class="nav-bar">
+                                    <ul>
+                                        <li><a href="main_officer.jsp">Home</a></li>
+                                        <li><a href="officer_employee_list.jsp">Employee</a></li>
+                                        <li><a href="officer_salary_main.jsp">Salary</a></li>
+                                        <li><a href="#about">Report</a></li>
+                                        <li><a href="welcome.html">Log Out</a></li>
+                                    </ul>
+                                </nav>
  			 <!-- /Header Menu -->
 			<!-- /Header -->
 				<!-- Page Content -->

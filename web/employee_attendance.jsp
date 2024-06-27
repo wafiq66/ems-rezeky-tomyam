@@ -36,6 +36,7 @@
             } else {
                 allowClockIn = false;
             }
+            
         }
         else if(latestAttendance.isBothNotNone()){
             allowClockOut = false;
@@ -49,8 +50,10 @@
             allowClockOut = true;
             allowClockIn = false;
         }
-        
-        
+        System.out.println(allowClockOut);
+        System.out.println(allowClockIn);
+        System.out.println(latestAttendance.getClockInTime());
+        System.out.println(latestAttendance.getClockOutTime());
         
     %>
     <header class="header">
@@ -75,7 +78,6 @@
                 <div class="date-time">
                     <p id="currentDateTime"></p>
                 </div>
-                <h2>Hi Employee...</h2>
                 <form action="record_attendance.do" method="post">
                     <input type="hidden" name="action" value="in">
                     <input type="submit" id="employeeId" value="Clock In" 

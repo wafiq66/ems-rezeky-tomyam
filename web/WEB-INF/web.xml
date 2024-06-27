@@ -28,6 +28,10 @@
         <servlet-name>ViewAttendanceRecord</servlet-name>
         <servlet-class>com.ems.controller.ViewAttendanceRecord</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewEmployeeSalaryController</servlet-name>
+        <servlet-class>com.ems.controller.ViewEmployeeSalaryController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterEmployeeController</servlet-name>
         <url-pattern>/register_employee.do</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>ViewAttendanceRecord</servlet-name>
         <url-pattern>/attendance_record.view</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewEmployeeSalaryController</servlet-name>
+        <url-pattern>/employee_salary.view</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

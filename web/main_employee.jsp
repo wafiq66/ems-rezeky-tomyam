@@ -21,7 +21,7 @@
                 <li><a href="employee_profile_main.jsp">Profile</a></li>
                 <li><a href="employee_current_schedule.jsp">Schedule</a></li>
                 <li><a href="employee_attendance.jsp">Attendance</a></li>
-                <li><a href="#contact">Salary</a></li>
+                <li><a href="employee_salary_main.jsp">Salary</a></li>
                 <li><a href="welcome.html">Log Out</a></li>
             </ul>
         </nav>
