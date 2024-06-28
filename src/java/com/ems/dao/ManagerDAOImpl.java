@@ -6,6 +6,7 @@
 package com.ems.dao;
 
 import com.ems.connection.Connect;
+import com.ems.model.Branch;
 import com.ems.model.RestaurantManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -69,33 +70,59 @@ public class ManagerDAOImpl implements ManagerDAO{
     }
     
     @Override
-public RestaurantManager[] getRestaurantManagerByBranchId(int BranchID) {
-    this.conn = Connect.getConnection();
-    List<RestaurantManager> managerList = new ArrayList<>();
-    String sql = "SELECT * FROM RESTAURANTMANAGER WHERE BRANCHID = ?";
-    
-    try (PreparedStatement statement = conn.prepareStatement(sql)) {
-        statement.setInt(1, BranchID);
-        try (ResultSet resultSet = statement.executeQuery()) {
-            while (resultSet.next()) {
-                RestaurantManager manager = new RestaurantManager();
-                manager.setManagerID(resultSet.getInt("MANAGERID"));
-                manager.setManagerPassword(resultSet.getString("MANAGERPASSWORD"));
-                manager.setManagerName(resultSet.getString("MANAGERNAME"));
-                manager.setManagerPhoneNumber(resultSet.getString("MANAGERPHONENUMBER"));
-                manager.setManagerEmail(resultSet.getString("MANAGEREMAIL"));
-                manager.setManagerStatus(resultSet.getBoolean("MANAGERSTATUS"));
-                managerList.add(manager);
-            }
-        }
-    } catch (SQLException e) {
-        e.printStackTrace(); // Replace with logging framework in production
-        throw new RuntimeException("Error retrieving managers by branch ID: " + e.getMessage(), e);
-    } 
-    
-    return managerList.toArray(new RestaurantManager[0]);
-}
+    public RestaurantManager[] getRestaurantManagerByBranchId(int BranchID) {
+        this.conn = Connect.getConnection();
+        List<RestaurantManager> managerList = new ArrayList<>();
+        String sql = "SELECT * FROM RESTAURANTMANAGER WHERE BRANCHID = ?";
 
+        try (PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setInt(1, BranchID);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    RestaurantManager manager = new RestaurantManager();
+                    manager.setManagerID(resultSet.getInt("MANAGERID"));
+                    manager.setManagerPassword(resultSet.getString("MANAGERPASSWORD"));
+                    manager.setManagerName(resultSet.getString("MANAGERNAME"));
+                    manager.setManagerPhoneNumber(resultSet.getString("MANAGERPHONENUMBER"));
+                    manager.setManagerEmail(resultSet.getString("MANAGEREMAIL"));
+                    manager.setManagerStatus(resultSet.getBoolean("MANAGERSTATUS"));
+                    managerList.add(manager);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Replace with logging framework in production
+            throw new RuntimeException("Error retrieving managers by branch ID: " + e.getMessage(), e);
+        } 
+
+        return managerList.toArray(new RestaurantManager[0]);
+    }
+    
+    @Override
+    public RestaurantManager getRestaurantManagerByBranch(Branch branch) {
+        this.conn = Connect.getConnection();
+        RestaurantManager manager = null;
+        String sql = "SELECT * FROM RESTAURANTMANAGER WHERE BRANCHID = ? AND MANAGERSTATUS = TRUE FETCH FIRST 1 ROWS ONLY";
+
+        try (PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setInt(1, branch.getBranchID());
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    manager = new RestaurantManager();
+                    manager.setManagerID(resultSet.getInt("MANAGERID"));
+                    manager.setManagerPassword(resultSet.getString("MANAGERPASSWORD"));
+                    manager.setManagerName(resultSet.getString("MANAGERNAME"));
+                    manager.setManagerPhoneNumber(resultSet.getString("MANAGERPHONENUMBER"));
+                    manager.setManagerEmail(resultSet.getString("MANAGEREMAIL"));
+                    manager.setManagerStatus(resultSet.getBoolean("MANAGERSTATUS"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Replace with logging framework in production
+            throw new RuntimeException("Error retrieving manager by branch: " + e.getMessage(), e);
+        } 
+
+        return manager;
+    }
     
     @Override
     public RestaurantManager[] getAllRestaurantManager() {

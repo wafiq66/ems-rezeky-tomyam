@@ -22,10 +22,10 @@
     <h1>Schedule</h1>
     <nav>
         <ul>
-            <li><a href="main_manager.jsp">Home</a></li>
-            <li><a href="">Report</a></li>
+           <li><a href="main_manager.jsp">Home</a></li>
+            <li><a href="report_update.jsp">Report</a></li>
             <li><a href="manage_schedule_main.jsp">Schedule</a></li>
-            <li><a href="login_manager.jsp">Log Out</a></li>
+            <li><a href="welcome.html">Log Out</a></li>
         </ul>
     </nav>
     <main>

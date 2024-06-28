@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.ems.dao;
+import com.ems.model.Branch;
 import com.ems.model.RestaurantManager;
 /**
  *
@@ -13,6 +14,7 @@ public interface ManagerDAO {
         
         int getRestaurantManagerBranchId(RestaurantManager manager);
         RestaurantManager getRestaurantManagerById(int RestaurantManagerID);
+        RestaurantManager getRestaurantManagerByBranch(Branch branch);
         RestaurantManager[] getRestaurantManagerByBranchId(int BranchID);
         RestaurantManager[] getAllRestaurantManager();
 }

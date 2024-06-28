@@ -7,6 +7,7 @@
 package com.ems.dao;
 import com.ems.model.Employee;
 import com.ems.model.Schedule;
+import com.ems.model.Attendance;
 
 /**
  *
@@ -18,6 +19,7 @@ public interface EmployeeDAO {
     int getEmployeeBranchID(Employee employee);
     Employee getEmployeeByPassport(String passport);
     Employee getEmployeeById(int employeeID);
+    Employee getEmployeeByAttendance(Attendance attendance);
     Employee[] getAllEmployee();
     Employee[] getAllEmployeeById(int[] employeeID);
     Employee[] getAllEmployeeByBranch(int branchID); 

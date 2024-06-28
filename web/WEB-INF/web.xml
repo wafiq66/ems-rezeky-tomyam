@@ -32,6 +32,14 @@
         <servlet-name>ViewEmployeeSalaryController</servlet-name>
         <servlet-class>com.ems.controller.ViewEmployeeSalaryController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManageReportController</servlet-name>
+        <servlet-class>com.ems.controller.ManageReportController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewVerifiedAttendanceController</servlet-name>
+        <servlet-class>com.ems.controller.ViewVerifiedAttendanceController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterEmployeeController</servlet-name>
         <url-pattern>/register_employee.do</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>ViewEmployeeSalaryController</servlet-name>
         <url-pattern>/employee_salary.view</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageReportController</servlet-name>
+        <url-pattern>/manage_report.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewVerifiedAttendanceController</servlet-name>
+        <url-pattern>/verified_report.view</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

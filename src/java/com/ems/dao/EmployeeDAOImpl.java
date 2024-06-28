@@ -7,6 +7,7 @@ package com.ems.dao;
 
 import com.ems.model.Employee;
 import com.ems.model.Schedule;
+import com.ems.model.Attendance;
 import com.ems.connection.Connect;
 
 import java.sql.Connection;
@@ -143,7 +144,36 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         return employee;
     }
 
-
+    @Override
+    public Employee getEmployeeByAttendance(Attendance attendance) {
+        this.conn = Connect.getConnection();
+        Employee employee = null;
+        String sql = "SELECT DISTINCT E.* " +
+                     "FROM EMPLOYEE AS E " +
+                     "JOIN EMPLOYEESCHEDULE AS ES ON (E.EMPLOYEEID = ES.EMPLOYEEID) " +
+                     "JOIN ATTENDANCE AS A ON (ES.EMPLOYEESCHEDULEID = A.EMPLOYEESCHEDULEID) " +
+                     "WHERE A.ATTENDANCEID = ?";
+        try (PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setInt(1, attendance.getAttendanceID());
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    employee = new Employee();
+                    employee.setEmployeeID(resultSet.getInt("EMPLOYEEID"));
+                    employee.setEmployeePassword(resultSet.getString("EMPLOYEEPASSWORD"));
+                    employee.setEmployeeName(resultSet.getString("EMPLOYEENAME"));
+                    employee.setEmployeePassportNumber(resultSet.getString("EMPLOYEEPASSPORTNUMBER"));
+                    employee.setEmployeePhoneNumber(resultSet.getString("EMPLOYEEPHONENUMBER"));
+                    employee.setEmployeeStatus(resultSet.getBoolean("EMPLOYEESTATUS"));
+                    employee.setEmployeeHourlyPay(resultSet.getDouble("EMPLOYEEHOURLYPAY"));
+                    employee.setEmployeeEmail(resultSet.getString("EMPLOYEEEMAIL"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Replace with logging framework in production
+            throw new RuntimeException("Error retrieving employee by attendance: " + e.getMessage(), e);
+        } 
+        return employee;
+    }
     
     @Override
     public Employee[] getAllEmployee() {

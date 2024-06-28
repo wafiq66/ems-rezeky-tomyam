@@ -39,7 +39,7 @@
                 <li><a href="main_officer.jsp">Home</a></li>
                 <li><a href="officer_employee_list.jsp">Employee</a></li>
                 <li><a href="officer_salary_main.jsp">Salary</a></li>
-                <li><a href="#about">Report</a></li>
+                <li><a href="officer_verified_report.jsp">Report</a></li>
                 <li><a href="welcome.html">Log Out</a></li>
             </ul>
         </nav>

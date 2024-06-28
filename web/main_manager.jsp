@@ -19,7 +19,7 @@
         <nav>
             <ul>
                 <li><a href="main_manager.jsp">Home</a></li>
-                <li><a href="#about">Report</a></li>
+                <li><a href="report_update.jsp">Report</a></li>
                 <li><a href="manage_schedule_main.jsp">Schedule</a></li>
                 <li><a href="welcome.html">Log Out</a></li>
             </ul>
