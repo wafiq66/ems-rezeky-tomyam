@@ -1,0 +1,213 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Main Wrapper */
+.main-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+/* Header */
+.header {
+    background-color: #31363F;
+    padding: 20px;
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-title-box h3 {
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+nav ul li {
+    margin-bottom: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #76ABAE;
+}
+
+/* Centering the content */
+.content.container-fluid {
+  padding: 20px;
+  max-width: 800px; /* adjust the width as needed */
+  margin: 0 auto;
+}
+
+.profile-basic {
+  max-width: 600px; /* adjust the width as needed */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.user-name {
+    font-size: 1.3em;
+    margin: 15px 0;
+}
+
+.card-title {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.5em;
+    border-bottom: 2px solid #222831;
+    padding-bottom: 10px;
+}
+
+
+.profile-basic h3 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.profile-basic ul {
+    margin: 0 340px 0 15px;
+    width: 91%;
+    padding: 0;
+    list-style: none;
+}
+
+.profile-basic ul li {
+    margin-bottom: 15px;
+}
+
+.profile-basic label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profile-basic input[type="text"],
+.profile-basic input[type="email"],
+.profile-basic input[type="password"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: content-box;
+}
+
+.profile-basic .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.profile-basic input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.profile-basic input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header {
+        width: 30%;
+        border-radius: 0 0 0px 0px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    nav ul li {
+        margin-bottom: 0;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .profile-details {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* Cancel button */
+.cancel-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.cancel-btn:hover {
+    background-color: #e53935;
+}
+
+/* Dedicated Cancel button outside form */
+.cancel-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cancel-button a {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cancel-button a:hover {
+    background-color: #e53935;
+}

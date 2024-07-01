@@ -127,7 +127,7 @@ public class ManageEmployeeProfileController extends HttpServlet {
             }
             
             
-            if(employee.getEmployeePassword().equals(userPassword)){
+            else if(employee.getEmployeePassword().equals(userPassword)){
                 
                 employee.setEmployeePassword(newPassword);
                 employee.setEmployeePhoneNumber(phone);
